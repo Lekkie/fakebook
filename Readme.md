@@ -13,42 +13,38 @@ You will write a small app that uses Coolplay API in a language of your choice. 
 How to run
 ==========
 ```shell
-./gradlew build && java -jar build/libs/fakebook-1.0-SNAPSHOT.jar -Dkeystore=/path/to/keystore.jks -Dpassword=Password12 -Dalias=main
+./gradlew build && java -jar build/libs/fakebook-1.0-SNAPSHOT.jar
 ```
+
 
 Browse to `http://localhost:8080`
 
 
 Guide to make Payment
 =====================
-Sign up
--------
-Click Signup -> Fill data -> Register 
-Successful registration will take you to the homepage.
-
-Login (Only follow if not registering)
---------------------------------------
-Login: enter username & password. 
+Login 
+-----
+Login with username `tester`,  and `password` as the password.  
 Successful sign in will take you to the homepage.
 
 Add recipient
 -------------
-Add a payment recipient
+Add a payment recipient  
 Home page -> My Payments -> Add Recipient
  
  Add a Friend
  -------------
- Add your Social network friend as a payment recipient
+ Add your Social network friend as a payment recipient  
  Home page -> My Payments -> Add Friend
 
 Make a Payment
 --------------
-Pay a recipient
+Pay a recipient  
 Home page -> My Payments -> Make a Payment
 
 Check Payment Status
 --------------------
-Check a payment status
+Check a payment status  
 Home page -> My Payments -> Check Payment Payment
 
 

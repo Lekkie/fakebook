@@ -4,7 +4,7 @@ gradle clean build
 cp ./build/libs/blowfish-1.0-SNAPSHOT.jar ./docker/
 cp ./src/main/resources/application.yml ./docker/
 docker rm $(docker ps -a -q)
-docker rmi -f blowfish
+docker rmi -f fakebook
 
 # docker hub username
 USERNAME=lekkie
