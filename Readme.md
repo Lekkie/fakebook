@@ -16,7 +16,7 @@ How to run
 ./gradlew build && java -jar build/libs/fakebook-1.0-SNAPSHOT.jar -Dkeystore=/path/to/keystore.jks -Dpassword=Password12 -Dalias=main
 ```
 
-browse to `http://localhost:8080`
+Browse to `http://localhost:8080`
 
 
 Guide to make Payment
@@ -24,10 +24,12 @@ Guide to make Payment
 Sign up
 -------
 Click Signup -> Fill data -> Register 
+Successful registration will take you to the homepage.
 
 Login (Only follow if not registering)
 --------------------------------------
-Login: enter username & password (Signup if you are not registered)
+Login: enter username & password. 
+Successful sign in will take you to the homepage.
 
 Add recipient
 -------------
