@@ -1,0 +1,91 @@
+group 'com.currencycloud'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+//apply plugin: 'docker'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+buildscript {
+    ext {
+        springBootVersion = '1.5.10.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        //classpath "se.transmode.gradle:gradle-docker:1.2"
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'BlowFish',
+                'Implementation-Version': version,
+                'Main-Class': 'com.avantir.blowfish.Application'
+    }
+    baseName = project.name
+    version = version
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+
+dependencies {
+
+
+    compile group: 'org.modelmapper', name: 'modelmapper', version:'0.7.4'
+    compile group: 'org.springframework.security.oauth', name: 'spring-security-oauth2', version: '2.2.1.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-crypto', version: '4.2.4.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '1.5.10.RELEASE'
+    
+    compile group: 'org.webjars', name: 'bootstrap', version: '3.3.7'
+    compile group: 'org.eclipse.jdt.core.compiler', name: 'ecj', version: '4.6.1'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '1.5.10.RELEASE'
+    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+    compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '8.5.6'
+    //compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-el', version: '8.5.6'
+
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.0.12.Final'
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.0.12.Final'
+    compile group: 'com.zaxxer', name: 'HikariCP', version: '2.7.2'
+    compile group: 'com.h2database', name: 'h2', version: '1.4.196'
+   // compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '1.5.10.RELEASE',{
+        exclude group: "org.apache.tomcat", module: "tomcat-jdbc"
+    }
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '1.5.10.RELEASE'
+    compile group: 'org.flywaydb', name: 'flyway-core', version: '3.0'
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.5.10.RELEASE'
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
+
+    compile group: 'org.json', name: 'json', version: '20180130'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.1.11'
+    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.1.11'
+    compile group: 'net.logstash.logback', name: 'logstash-logback-encoder', version: '4.8'
+    /*compile group: 'displaytag', name: 'displaytag', version: '1.2',{
+        exclude group: "log4j", module: "log4j"
+        exclude group: "org.slf4j"
+    }
+    */
+
+    testCompile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.5.7.RELEASE'
+    testCompile group: 'com.github.tomakehurst', name: 'wiremock-standalone', version: '2.0.5-beta'
+    testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+    testCompile group: 'org.powermock', name: 'powermock-module-junit4', version: '1.4.11'
+    testCompile group: 'org.powermock', name: 'powermock-api-mockito', version: '1.4.11'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+

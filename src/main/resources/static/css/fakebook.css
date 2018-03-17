@@ -1,0 +1,45 @@
+
+div.mycontainer {
+            background-color: yellow;
+            border: 1px solid #000;
+            width: 500px;
+            margin: 5px auto;
+        }
+
+        table.contained {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table td {
+            border: 2px solid #999;
+        }
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+th,td {
+    border: 1px solid black;
+}
+
+table.a {
+    table-layout: auto;
+    width: 180px;
+}
+
+table.b {
+    table-layout: fixed;
+    width: 180px;
+}
+
+table.c {
+    table-layout: auto;
+    width: 100%;
+}
+
+table.d {
+    table-layout: fixed;
+    width: 100%;
+}

@@ -1,0 +1,63 @@
+fakebook:
+  payment:
+    url: https://private-anon-4fdc85f02d-coolpayapi.apiary-mock.com/api
+    username: LekanO
+    apikey: NbvelfqZFh44ZayXLTfxCkbcPBhkDfAWNETNDyvjm5U6jG0e4Te0OCex8ZKRPTRt/WMpclC5d8zOIT4gp7CDzIJto2jUvLXEjQN7IjeoiVE8ewa4CtVfN/GAR3i5DPtYVCNyuLs8aP62QV0ZbtjzHOkquEYFWpq+AdJcIUE32ryE0DojeLzH0DQJ138U1leIod8mreMz3PeZg1Mxi1nE59wZi5JWvImYCez8ZDgFTtPXc+9KdVBgM5ttBHJgT2gvL8cLo+Bw6BovJ2eDa8mZJR7pRF93tWVRPiFQtf1qKruM7ZwayMWo7pTKRtzf44rcG+LJawBYL+kBjmjDIyfQ0w==
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    jdbcUrl: jdbc:h2:mem:fakebook;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    #url: jdbc:h2:mem:fakebook;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    platform: h2
+    username: sa
+    password: test
+    driverClassName: org.h2.Driver
+    hikari:
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+      connection-timeout: 60000
+      maximum-pool-size: 5
+      connection-test-query: SELECT 1
+      minimum-idle: 1
+      pool-name: HikariThread
+      auto-commit: false
+    #tomcat:
+    #    max-active: 50
+    #    max-idle: 50
+    #    testOnBorrow: true
+    #    validationQuery: select 1;
+    #    validationInterval: 30000
+  jpa:
+    database: default
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+        c3p0:
+          max_size: 15
+          min_size: 6
+          timeout: 2500
+          max_statements_per_connection: 10
+          idle_test_period: 3000
+          acquire_increment: 3
+          validate: false
+          numHelperThreads: 15
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
+  messages:
+    basename: validation
+
+  flyway:
+    baselineOnMigrate: true
