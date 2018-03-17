@@ -1,27 +1,55 @@
-# FakebookUi
+Scenario
+========
+Coolpay is a new company that allows to easily send money to friends through their API.
+You work for Fakebook, a successful social network. You’ve been tasked to integrate Coolpay inside Fakebook. A/B tests show that users prefer to receive money than pokes!
+You can find Coolpay documentation here: http://docs.coolpayapi.apiary.io/
+You will write a small app that uses Coolplay API in a language of your choice. The app should be able do the following:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.2.
+- Authenticate to Coolpay API
+- Add recipients
+- Send them money
+- Check whether a payment was successful
 
-## Development server
+How to run
+==========
+```shell
+./gradlew build && java -jar build/libs/fakebook-1.0-SNAPSHOT.jar -Dkeystore=/path/to/keystore.jks -Dpassword=Password12 -Dalias=main
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+browse to `http://localhost:8080`
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Guide to make Payment
+=====================
+Sign up
+-------
+Click Signup -> Fill data -> Register 
 
-## Build
+Login (Only follow if not registering)
+--------------------------------------
+Login: enter username & password (Signup if you are not registered)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Add recipient
+-------------
+Add a payment recipient
+Home page -> My Payments -> Add Recipient
+ 
+ Add a Friend
+ -------------
+ Add your Social network friend as a payment recipient
+ Home page -> My Payments -> Add Friend
 
-## Running unit tests
+Make a Payment
+--------------
+Pay a recipient
+Home page -> My Payments -> Make a Payment
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Check Payment Status
+--------------------
+Check a payment status
+Home page -> My Payments -> Check Payment Payment
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ 
