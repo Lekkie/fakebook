@@ -28,12 +28,7 @@ spring:
       minimum-idle: 1
       pool-name: HikariThread
       auto-commit: false
-    #tomcat:
-    #    max-active: 50
-    #    max-idle: 50
-    #    testOnBorrow: true
-    #    validationQuery: select 1;
-    #    validationInterval: 30000
+
   jpa:
     database: default
     generate-ddl: true

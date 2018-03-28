@@ -53,6 +53,7 @@ public class FakebookTaskScheduler {
     private List<Payment> getDBPayments(Payment payment){
         List<Payment> savedPaymentList = new ArrayList<>();
         // Coolplay API returns same payment id for all payments, hack to fix locally.
+        // Do NOT do this in real life...NEVER!
         List<Payment> dbPaymentList = paymentService.findByExtPaymentId(payment.getExtPaymentId());
          if(dbPaymentList != null){
             logger.debug("Found payment(s): " + dbPaymentList.size());

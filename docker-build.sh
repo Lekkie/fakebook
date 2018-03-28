@@ -1,4 +1,4 @@
-rm -f ./docker/blowfish*.jar
+rm -f ./docker/fakebook*.jar
 rm -f ./docker/app*.yml
 gradle clean build
 cp ./build/libs/blowfish-1.0-SNAPSHOT.jar ./docker/

@@ -18,7 +18,7 @@ public class Payment  extends BaseModel {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long paymentId;
     @Column
-    private BigDecimal amount;
+    private BigDecimal amount; // Always save amount/money/pries in bigdecimal,  doubles/floats loses precision
     @Column
     private Long currencyId;
     @Column

@@ -1,5 +1,7 @@
 package com.currencycloud.fakebook.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
 import sun.security.x509.*;
 
@@ -28,6 +30,8 @@ public class KeyUtils {
      * should be the one with read access (chmod 400)
      */
 
+    private static final Logger logger = LoggerFactory.getLogger(KeyUtils.class);
+
 
     public static final String KEYSTORE;
     public static final String KEYSTORE_PWD;
@@ -46,9 +50,17 @@ public class KeyUtils {
             throw new IllegalArgumentException("Keystore url cannot be null");
         }
         final KeyStore keystore = KeyStore.getInstance(keyStoreType);
-        File file = new ClassPathResource(keystoreFile).getFile();
-        FileInputStream fis = new FileInputStream(file);
+        InputStream fis;
 
+        File file = new File(keystoreFile);
+        if(file.exists() && !file.isDirectory()) {
+            fis = new FileInputStream(file);
+        }
+        else{
+            fis = new ClassPathResource(keystoreFile).getInputStream();
+        }
+
+        logger.debug("Loaded keystore....");
         try {
             keystore.load(fis, password.toCharArray());
             //LOG.debug("Loaded key store");
